@@ -133,6 +133,11 @@ export function RegisterRoutes(app: express.Express) {
                         response.set(name, headers[name]);
                     });
 
+                    const cookies = controllerObj.getCookies();
+                    cookies.forEach((cookieObj: { name: string, value: string, options?: any }) => {
+                        response.cookie(cookieObj.name, cookieObj.value, cookieObj.options);
+                    });
+
                     statusCode = controllerObj.getStatus();
                 }
 
