@@ -136,7 +136,7 @@ export function RegisterRoutes(app: express.Express) {
                     const cookies = controllerObj.getCookies();
                     console.log("cookies", cookies)
                     cookies.forEach((cookieObj: { name: string, value: string, options?: any }) => {
-                        response.session.cookie(cookieObj.name, cookieObj.value, cookieObj.options);
+                        response.cookie(cookieObj.name, cookieObj.value, cookieObj.options);
                     });
 
                     statusCode = controllerObj.getStatus();
